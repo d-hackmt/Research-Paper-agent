@@ -1,7 +1,4 @@
 import os
-from dotenv import load_dotenv
-load_dotenv()
-
 import streamlit as st
 import re 
 from langchain_groq import ChatGroq
@@ -19,7 +16,7 @@ from langgraph.constants import Send
 from langgraph.graph import StateGraph, START, END
 
 # === LLM and Tools ===
-os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
+os.environ["GROQ_API_KEY"] = st.secrets[GROQ_API_KEY ]
 llm = ChatGroq(model="qwen-qwq-32b")
 
 api_wrapper_arxiv = ArxivAPIWrapper(top_k_results=5, doc_content_chars_max=1000)
