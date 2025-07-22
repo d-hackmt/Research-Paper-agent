@@ -17,7 +17,7 @@ from langgraph.graph import StateGraph, START, END
 
 # === LLM and Tools ===
 os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
-llm = ChatGroq(model="qwen-qwq-32b")
+llm = ChatGroq(model="qwen/qwen3-32b")
 
 api_wrapper_arxiv = ArxivAPIWrapper(top_k_results=5, doc_content_chars_max=1000)
 arxiv_tool = ArxivQueryRun(api_wrapper=api_wrapper_arxiv)
